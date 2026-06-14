@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domain Seats — Smarter seating for West End theatre</title>
+    <meta name="description" content="Unlock premium theatre seats through intelligent mathematical seat optimization. Get closer to the stage.">
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Glow Elements -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <span class="logo-icon">⬡</span>
+                <span class="logo-text">Domain<span class="highlight">Seats</span></span>
+            </div>
+            <div class="badge">Coming Soon to the West End</div>
+        </header>
+
+        <!-- Main Hero Section -->
+        <main class="hero">
+            <h1 class="hero-title">
+                Smarter seating. <br>
+                <span class="gradient-text">Closer to the stage.</span>
+            </h1>
+            <p class="hero-subtitle">
+                Domain Seats uses advanced optimization algorithms to shift seating arrangements in real-time, unlocking premium empty seats and creating seamless upgrade opportunities for theatre-goers.
+            </p>
+
+            <!-- Waitlist Form -->
+            <form class="waitlist-form" id="waitlistForm" onsubmit="handleWaitlistSubmit(event)">
+                <input type="email" id="emailInput" placeholder="Enter your email address" required aria-label="Email Address">
+                <button type="submit" id="submitBtn">
+                    <span>Request Early Access</span>
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </form>
+            <p class="form-feedback" id="formFeedback"></p>
+        </main>
+
+        <!-- Features Grid -->
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Intelligent Upgrades</h3>
+                <p>Our algorithms resolve complex seat-shifting chains in seconds, opening up premium stalls and circles that would otherwise sit empty.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎟️</div>
+                <h3>Optimized Yields</h3>
+                <p>Better seating configurations mean higher occupancy rates for theatres, and premium experiences at fair prices for patrons.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚙️</div>
+                <h3>Seamless Integration</h3>
+                <p>A fully transactional API interface designed to run silently behind the scenes of major ticketing distribution channels.</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Domain Seats. All rights reserved.</p>
+            <p class="contact-email">Inquiries: <a href="mailto:founder@domainseats.co.uk">founder@domainseats.co.uk</a></p>
+        </footer>
+    </div>
+
+    <script>
+        function handleWaitlistSubmit(event) {
+            event.preventDefault();
+            const emailInput = document.getElementById('emailInput');
+            const submitBtn = document.getElementById('submitBtn');
+            const feedback = document.getElementById('formFeedback');
+            
+            // Simple visual feedback since there's no backend connected yet
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>Joining...</span>';
+            
+            setTimeout(() => {
+                feedback.classList.add('success');
+                feedback.innerText = "Thank you! You've been added to the early access list.";
+                emailInput.value = '';
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>Request Early Access</span>';
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

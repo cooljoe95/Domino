@@ -1,0 +1,315 @@
+/* Modern Design System for Domain Seats */
+
+:root {
+    --bg-color: #050811;
+    --card-bg: rgba(13, 20, 38, 0.4);
+    --border-color: rgba(255, 255, 255, 0.08);
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+    --accent-glow: #6366f1;
+    --accent-glow-secondary: #06b6d4;
+    --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+/* Background Glow Orbs for High Aesthetics */
+.glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+    z-index: 0;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.orb-1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, rgba(99,102,241,0) 70%);
+    top: -10%;
+    right: -10%;
+}
+
+.orb-2 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--accent-glow-secondary) 0%, rgba(6,182,212,0) 70%);
+    bottom: -15%;
+    left: -10%;
+}
+
+.container {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 24px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 64px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -0.03em;
+}
+
+.logo-icon {
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, var(--accent-glow), var(--accent-glow-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 400;
+}
+
+.highlight {
+    background: linear-gradient(135deg, var(--accent-glow), var(--accent-glow-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 80px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4.25rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+    margin-bottom: 24px;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #a5b4fc 0%, #818cf8 50%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+/* Waitlist Form Styling */
+.waitlist-form {
+    display: flex;
+    width: 100%;
+    max-width: 520px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    padding: 6px;
+    border-radius: 9999px;
+    backdrop-filter: blur(10px);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.waitlist-form:focus-within {
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
+}
+
+.waitlist-form input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-primary);
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-family: var(--font-sans);
+}
+
+.waitlist-form input::placeholder {
+    color: #6b7280;
+}
+
+.waitlist-form button {
+    background: linear-gradient(135deg, var(--accent-glow) 0%, #4f46e5 100%);
+    color: #ffffff;
+    border: none;
+    outline: none;
+    padding: 12px 28px;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    font-family: var(--font-sans);
+}
+
+.waitlist-form button:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
+}
+
+.arrow-icon {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease;
+}
+
+.waitlist-form button:hover .arrow-icon {
+    transform: translateX(3px);
+}
+
+.form-feedback {
+    margin-top: 16px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    min-height: 24px;
+}
+
+.form-feedback.success {
+    color: #10b981;
+}
+
+/* Features Grid */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 80px;
+}
+
+.feature-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 32px;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.feature-icon {
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+}
+
+.feature-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    font-weight: 300;
+}
+
+/* Footer styling */
+footer {
+    margin-top: auto;
+    border-top: 1px solid var(--border-color);
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #4b5563;
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.contact-email a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contact-email a:hover {
+    color: var(--accent-glow-secondary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    header {
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 40px;
+    }
+    
+    .waitlist-form {
+        flex-direction: column;
+        border-radius: 20px;
+        padding: 12px;
+        gap: 12px;
+    }
+    
+    .waitlist-form input {
+        padding: 8px 12px;
+        text-align: center;
+    }
+    
+    .waitlist-form button {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
