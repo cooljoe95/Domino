@@ -154,59 +154,36 @@ header {
     margin-bottom: 40px;
 }
 
-/* Waitlist Form Styling */
-.waitlist-form {
+/* CTA Button Styling */
+.cta-container {
     display: flex;
-    width: 100%;
-    max-width: 520px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border-color);
-    padding: 6px;
-    border-radius: 9999px;
-    backdrop-filter: blur(10px);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    justify-content: center;
+    margin-top: 8px;
 }
 
-.waitlist-form:focus-within {
-    border-color: rgba(99, 102, 241, 0.4);
-    box-shadow: 0 0 25px rgba(99, 102, 241, 0.15);
-}
-
-.waitlist-form input {
-    flex: 1;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: var(--text-primary);
-    padding: 12px 24px;
-    font-size: 1rem;
-    font-family: var(--font-sans);
-}
-
-.waitlist-form input::placeholder {
-    color: #4b5563;
-}
-
-.waitlist-form button {
+.cta-button {
+    text-decoration: none;
     background: linear-gradient(135deg, var(--accent-glow) 0%, #4f46e5 100%);
     color: #ffffff;
     border: none;
     outline: none;
-    padding: 12px 28px;
+    padding: 16px 40px;
     border-radius: 9999px;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 8px;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    gap: 10px;
+    transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
     font-family: var(--font-sans);
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.25);
 }
 
-.waitlist-form button:hover {
-    transform: translateY(-1px);
+.cta-button:hover {
+    transform: translateY(-2px);
     opacity: 0.95;
+    box-shadow: 0 6px 24px rgba(99, 102, 241, 0.35);
 }
 
 .arrow-icon {
@@ -215,19 +192,8 @@ header {
     transition: transform 0.2s ease;
 }
 
-.waitlist-form button:hover .arrow-icon {
-    transform: translateX(3px);
-}
-
-.form-feedback {
-    margin-top: 16px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    min-height: 24px;
-}
-
-.form-feedback.success {
-    color: #10b981;
+.cta-button:hover .arrow-icon {
+    transform: translateX(4px);
 }
 
 /* Features Grid */
@@ -304,21 +270,10 @@ footer {
         margin-bottom: 40px;
     }
     
-    .waitlist-form {
-        flex-direction: column;
-        border-radius: 20px;
-        padding: 12px;
-        gap: 12px;
-    }
-    
-    .waitlist-form input {
-        padding: 8px 12px;
-        text-align: center;
-    }
-    
-    .waitlist-form button {
+    .cta-button {
         width: 100%;
         justify-content: center;
+        padding: 14px 32px;
     }
     
     footer {
