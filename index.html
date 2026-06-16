@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domino Seats — The chain reaction of better theatre seating</title>
+    <meta name="description" content="Unlock premium theatre upgrades. When one seat moves, the whole house aligns. Cascading seating optimization for West End theatre.">
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Glow Elements -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <!-- Custom Domino Seat Logo SVG -->
+                <svg class="logo-svg" viewBox="0 0 50 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <!-- Define the miniature theatre seat template -->
+                        <g id="mini-seat">
+                            <!-- Seat backrest -->
+                            <path d="M2,6 C2,3 8,3 8,6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                            <!-- Seat cushion -->
+                            <rect x="1.5" y="6" width="7" height="2" rx="0.5" fill="currentColor"/>
+                            <!-- Left and Right legs -->
+                            <line x1="2" y1="8" x2="2" y2="10" stroke="currentColor" stroke-width="0.8"/>
+                            <line x1="8" y1="8" x2="8" y2="10" stroke="currentColor" stroke-width="0.8"/>
+                        </g>
+                    </defs>
+                    <!-- Outer Domino shell -->
+                    <rect x="1.5" y="1.5" width="47" height="87" rx="6" stroke="url(#logo-gradient)" stroke-width="2.5" fill="rgba(13, 20, 38, 0.6)"/>
+                    
+                    <!-- Center Divider -->
+                    <line x1="5" y1="45" x2="45" y2="45" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 2" opacity="0.5"/>
+                    
+                    <!-- Top Half: 3 Seats (Diagonally arranged) -->
+                    <use href="#mini-seat" x="6" y="7" />
+                    <use href="#mini-seat" x="20" y="17" />
+                    <use href="#mini-seat" x="34" y="27" />
+                    
+                    <!-- Bottom Half: 4 Seats (Corner arranged) -->
+                    <use href="#mini-seat" x="8" y="50" />
+                    <use href="#mini-seat" x="32" y="50" />
+                    <use href="#mini-seat" x="8" y="70" />
+                    <use href="#mini-seat" x="32" y="70" />
+
+                    <!-- Linear Gradient definition for the border -->
+                    <linearGradient id="logo-gradient" x1="0" y1="0" x2="50" y2="90" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#6366f1"/>
+                        <stop offset="1" stop-color="#06b6d4"/>
+                    </linearGradient>
+                </svg>
+                <span class="logo-text">Domino<span class="highlight">Seats</span></span>
+            </div>
+            <div class="badge">Coming Soon to the West End</div>
+        </header>
+
+        <!-- Main Hero Section -->
+        <main class="hero">
+            <h1 class="hero-title">
+                The chain reaction of <br>
+                <span class="gradient-text">better theatre seating.</span>
+            </h1>
+            <p class="hero-subtitle">
+                Domino Seats uses cascading spatial optimization to shift booking layouts in real-time. By moving patrons to their dream configurations, we unlock premium stalls and front-row vacancies that would otherwise sit empty.
+            </p>
+
+            <!-- Waitlist Form -->
+            <form class="waitlist-form" id="waitlistForm" onsubmit="handleWaitlistSubmit(event)">
+                <input type="email" id="emailInput" placeholder="Enter your email address" required aria-label="Email Address">
+                <button type="submit" id="submitBtn">
+                    <span>Request Early Access</span>
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </form>
+            <p class="form-feedback" id="formFeedback"></p>
+        </main>
+
+        <!-- Features Grid -->
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">⛓️</div>
+                <h3>Cascading Shifting</h3>
+                <p>When one seat changes, the whole row shifts. Our solver creates custom upgrade paths, moving audiences closer to the stage automatically.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎟️</div>
+                <h3>Maximizing Occupancy</h3>
+                <p>We work with theatres to fill premium vacancies and pack houses tighter, generating extra yield for venues and better experiences for patrons.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔌</div>
+                <h3>Developer First</h3>
+                <p>A fast, transactional backend API built to integrate seamlessly with existing box office architectures and ticket distributions.</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Domino Seats. All rights reserved.</p>
+            <p class="contact-email">Inquiries: <a href="mailto:founder@dominoseats.co.uk">founder@dominoseats.co.uk</a></p>
+        </footer>
+    </div>
+
+    <script>
+        function handleWaitlistSubmit(event) {
+            event.preventDefault();
+            const emailInput = document.getElementById('emailInput');
+            const submitBtn = document.getElementById('submitBtn');
+            const feedback = document.getElementById('formFeedback');
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>Joining...</span>';
+            
+            setTimeout(() => {
+                feedback.classList.add('success');
+                feedback.innerText = "Thank you! You've been added to the early access list.";
+                emailInput.value = '';
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>Request Early Access</span>';
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
