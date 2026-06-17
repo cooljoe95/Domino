@@ -72,18 +72,16 @@
                 Domino Seats optimizes audience seating allocations in real-time, unlocking premium seat availability and seamless upgrade options to elevate the West End theatre experience.
             </p>
 
-            <!-- Waitlist Form -->
-            <form class="waitlist-form" id="waitlistForm" onsubmit="handleWaitlistSubmit(event)">
-                <input type="email" id="emailInput" placeholder="Enter your email address" required aria-label="Email Address">
-                <button type="submit" id="submitBtn">
-                    <span>Request Early Access</span>
+            <!-- Clean Contact Trigger instead of non-functional form -->
+            <div class="cta-container">
+                <a href="mailto:founder@dominoseats.co.uk?subject=Partnership%20Inquiry%20-%20Domino%20Seats" class="cta-button">
+                    <span>Contact Founder</span>
                     <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="5" y1="12" x2="19" y2="12"></line>
                         <polyline points="12 5 19 12 12 19"></polyline>
                     </svg>
-                </button>
-            </form>
-            <p class="form-feedback" id="formFeedback"></p>
+                </a>
+            </div>
         </main>
 
         <!-- Features Grid -->
@@ -111,25 +109,5 @@
             <p class="contact-email">Inquiries: <a href="mailto:founder@dominoseats.co.uk">founder@dominoseats.co.uk</a></p>
         </footer>
     </div>
-
-    <script>
-        function handleWaitlistSubmit(event) {
-            event.preventDefault();
-            const emailInput = document.getElementById('emailInput');
-            const submitBtn = document.getElementById('submitBtn');
-            const feedback = document.getElementById('formFeedback');
-            
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span>Joining...</span>';
-            
-            setTimeout(() => {
-                feedback.classList.add('success');
-                feedback.innerText = "Thank you! You've been added to the early access list.";
-                emailInput.value = '';
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<span>Request Early Access</span>';
-            }, 1000);
-        }
-    </script>
 </body>
 </html>
